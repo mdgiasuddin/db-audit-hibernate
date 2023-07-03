@@ -65,7 +65,7 @@ public class CustomerController {
         AuditQuery auditQuery = auditReader.createQuery()
             .forRevisionsOfEntityWithChanges(Customer.class, true);
 
-        auditQuery.add(AuditEntity.property("id").eq(id));
+        auditQuery.add(AuditEntity.id().eq(id));
         List histories = auditQuery.getResultList();
 
         List<CustomerAuditResponse> responses = new ArrayList<>();
