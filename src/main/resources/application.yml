@@ -1,0 +1,35 @@
+server:
+  port: 9229
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5469/amar_ami_db
+    username: user_giash
+    password: nE5kMc7JCGNqwDQM
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+      org:
+        hibernate:
+          envers:
+            audit_table_prefix: audit_
+            audit_table_suffix:
+            revision_field_name: revision_id
+            revision_type_field_name: revision_type
+            store_data_at_delete: true
+
+
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    hibernate:
+#      ddl-auto: update
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-description: "init"
+    baseline-version: 1
